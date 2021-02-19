@@ -1,4 +1,4 @@
-# practice-projects
+# David's Practice Projects
 
 While I'm learning C#, I'm working on these projects. This repository acts as a public storage for these.
 
@@ -24,6 +24,11 @@ After following Tim Corey's [tutorial](https://www.youtube.com/playlist?list=PLL
 
 This project provides a very simple GUI for the command line tool youtube-dl. It also allows the user to save a "command queue" for the command line tool as JSON file.
 
-* apply WPF/MVVM knowledge
+* apply WPF/MVVM knowledge using MVVM Cross
 * learn how to call an external process without locking the UI thread.
 * learn how to use .net's JSON library to save / load data.
+
+Pitfalls fallen into:
+
+* Observable collections don't like being updated from another thread (at least prior to .net 4.5)
+(Tried to use a callback to pipe the output of youtube-dl into the collection)
