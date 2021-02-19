@@ -20,11 +20,10 @@ The last one is a crude helper as finding a good trigger, that triggers once aft
 
 ## YTDL GUI 
 
-The goal for this project was to move past the shell of the WPF tutorial projects, while also solving a "real" issue.
+After following Tim Corey's [tutorial](https://www.youtube.com/playlist?list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8) on WPF/MVVM, my goal for this project was to move past the shell of the typical tutorial project, while also solving a "real" issue.
 
 This project provides a very simple GUI for the command line tool youtube-dl. It also allows the user to save a "command queue" for the command line tool as JSON file.
 
 * apply WPF/MVVM knowledge
+* learn how to call an external process without locking the UI thread.
 * learn how to use .net's JSON library to save / load data.
-* learn how to call an external process - ideally without locking the UI thread.
-
