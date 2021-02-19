@@ -1,13 +1,13 @@
 # practice-projects
 
-This repository acts as a storage for my practice projects. As part of learning C# I have been working on a couple small projects.
+While I'm learning C#, I'm working on these projects. This repository acts as a public storage for these.
 
 ## ONI Mod: AdjustedFoodDisplay
 
 The initial project that brought me to C#: A mod for the game "Oxygen Not Included".
-It uses the harmony library, that is included with the game, to change how the (base) game [1] displays the avaiable calories. By default the game counts all available food and displays this as total available calories at the top of the screen, while also providing the same number on the right of the screen as part of the header for the food category of the resource display.
+It uses the harmony library, that is included with the game, to change how the (base) game [1] displays the total calories available to the colony. By default the game counts all available food items and displays ther total calories at the top of the screen, while also providing the same number on the right edge of the screen as part of the resource display.
 
-The mod aims to adjust the number at the top of the screen, so it only accounts for the food that at least one colonist is permitted to eat - usually excluding "raw" & low quality food as the game progresses. The number on the resource display remains unchanged.
+The mod aims to adjust the number at the top of the screen, so it only accounts for the food that at least one colonist is permitted to eat. While these values will initially overlap, the will diverge as the game progresses, when the player begins to disallow the consumption of raw and low quality food. The number on the resource display remains unchanged, so both values are available to the player at any given time.
 
 To achieve this the mod uses harmony's postfix hooks to latch onto 3 functions:
 * The refresh function of the calorie display - to update the text.
