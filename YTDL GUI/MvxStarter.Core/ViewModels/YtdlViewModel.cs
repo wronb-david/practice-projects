@@ -122,14 +122,14 @@ namespace MvxStarter.Core.ViewModels
             string currentOptions = OptionsText;
             try
             {
-                LogOutput("Starting to download", currentLink);
+                LogOutput(message: "Starting to download", link: currentLink);
                 Task<bool> result = _ytdlHandler.StartDownload(currentLink, currentOptions);
                 bool _ = await result;
-                LogOutput("Finished downloading", currentLink);
+                LogOutput(message: "Finished downloading", link: currentLink);
                 ClearTextFields();
             }
             catch (Exception e) {
-                LogOutput("Failed to download", currentLink);
+                LogOutput(message : "Failed to download", link: currentLink);
                 LogError(e.Message);
             }
             
@@ -145,7 +145,7 @@ namespace MvxStarter.Core.ViewModels
             _ = RaisePropertyChanged(OptionsText);
         }
 
-        private void LogOutput(string link, string message) {
+        private void LogOutput(string message, string link) {
             DownloadOutput.Add($"{System.DateTime.Now:yyyy'-'MM'-'dd'T'HH':'mm':'ss} {message}: {link}");
         }
         private void LogError(string message)
@@ -171,14 +171,14 @@ namespace MvxStarter.Core.ViewModels
                 string options = item.Options;
                 try
                 {
-                    LogOutput("Starting to download", link);
+                    LogOutput(message: "Starting to download", link: link);
                     Task<bool> result = _ytdlHandler.StartDownload(link, options);
                     _ = await result;
-                    LogOutput("Finished downloading", link);
+                    LogOutput(message: "Finished downloading", link: link);
                 }
                 catch (Exception e)
                 {
-                    LogOutput("Failed to download", link);
+                    LogOutput(message: "Failed to download", link: link);
                     LogError(e.Message);
                 }
                 
