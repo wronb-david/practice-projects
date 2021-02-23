@@ -32,3 +32,7 @@ Pitfalls fallen into:
 
 * Observable collections don't like being updated from another thread (at least prior to .net 4.5)
 (Tried to use a callback to pipe the output of youtube-dl into the collection)
+
+## XUnitTesting
+
+This project acts as a "playground" to experiment with the different features of the XUnit testing library. Also includes some design patterns.
