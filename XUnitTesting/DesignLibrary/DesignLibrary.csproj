@@ -44,7 +44,11 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="Models\CharacterModel.cs" />
     <Compile Include="Patterns\ASingleton.cs" />
+    <Compile Include="Patterns\BubbleWrap.cs" />
+    <Compile Include="Patterns\FoamWrap.cs" />
+    <Compile Include="Patterns\IWrappable.cs" />
     <Compile Include="Patterns\NotASingleton.cs" />
+    <Compile Include="Patterns\Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
