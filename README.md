@@ -35,4 +35,4 @@ Pitfalls fallen into:
 
 ## XUnitTesting
 
-This project acts as a "playground" to experiment with the different features of the XUnit testing library. Also includes some design patterns.
+This project acts as a "playground" to experiment with the different features of the XUnit testing library. I'm also using this project to implement some of the common design patterns (Currently: Singleton & Decorator).
