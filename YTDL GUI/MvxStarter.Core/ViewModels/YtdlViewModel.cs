@@ -102,8 +102,7 @@ namespace MvxStarter.Core.ViewModels
         {
             int freeID = GetFreeID();
             QueuedDownloads.Add(new VideoDownloadModel { EntryID = freeID, Link = LinkText, Options = OptionsText });
-            LinkText = string.Empty;
-            OptionsText = string.Empty;
+            ClearTextFields();
             RaisePropertyChanged(() => CanStartQueue);
             SaveQueue();
         }
@@ -116,7 +115,7 @@ namespace MvxStarter.Core.ViewModels
         }
 
         public bool CanStartDirectDownload => (!_processRunning && LinkText?.Length > 0);
-        async public void StartDirectDownload() {
+        public async void StartDirectDownload() {
             ToggleDLButtons(setDisabled: true);
             string currentLink = LinkText;
             string currentOptions = OptionsText;
@@ -141,8 +140,11 @@ namespace MvxStarter.Core.ViewModels
             LinkText = string.Empty;
             _ = RaisePropertyChanged(LinkText);
 
-            OptionsText = string.Empty;
-            _ = RaisePropertyChanged(OptionsText);
+            if (ClearOptions) {
+                OptionsText = string.Empty;
+                _ = RaisePropertyChanged(OptionsText);
+            }
+            
         }
 
         private void LogOutput(string message, string link) {
@@ -213,6 +215,15 @@ namespace MvxStarter.Core.ViewModels
         private void UpdateYTDLLoc() {
             _ytdlHandler.UpdateFileLoc(YTDLLoc);
         }
+
+        private bool _clearOptions = false;
+
+        public bool ClearOptions
+        {
+            get { return _clearOptions; }
+            set { SetProperty(ref _clearOptions, value); }
+        }
+
 
     }
 }

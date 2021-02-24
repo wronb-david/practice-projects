@@ -77,8 +77,14 @@
                  Text="{Binding YTDLLoc, Mode=TwoWay}" Margin="2" MinWidth="180"
                  IsEnabled="{Binding CanUpdateLocation}"/>
         <TextBlock Text="Console Output:" Grid.Column="5" Grid.Row="2" Margin="2,2,0,0" />
+        <TextBlock Text="Clear Options: " 
+                   Grid.Column="5" Grid.Row="3" 
+                   Margin="2,2,0,0" />
+        <CheckBox Grid.Column="6" Grid.Row="3" 
+                  Margin="2,2,0,0" 
+                  IsChecked="{Binding ClearOptions}" />
         <ListView Grid.Column="5" Grid.ColumnSpan="2"
-                  Grid.Row="3" Grid.RowSpan="2" 
-                  Margin="2" ItemsSource="{Binding DownloadOutput}"/>
+                  Grid.Row="4" Margin="2" 
+                  ItemsSource="{Binding DownloadOutput}"/>
     </Grid>
 </views:MvxWpfView>
