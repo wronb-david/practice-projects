@@ -33,6 +33,20 @@ Pitfalls fallen into:
 * Observable collections don't like being updated from another thread (at least prior to .net 4.5)
 (Tried to use a callback to pipe the output of youtube-dl into the collection)
 
+Added a checkbox allow the options text to remain after starting a direct download / adding a task to the queue.
+
 ## XUnitTesting
 
 This project acts as a "playground" to experiment with the different features of the XUnit testing library. I'm also using this project to implement some of the common design patterns (Currently: Singleton & Decorator).
+
+## Currently Looking into ...
+
+* Design Pattern refresher
+* Design Principles: SOLID
+  - Single Responsibility Principle
+  - Open Close Principle
+  - Liskov Substitution Principle
+  - Interface Segregation Principle
+  - Dependency Inversion Principle
+* Unit Testing: Mocking
+* Storing binary data in SQL-Databases
