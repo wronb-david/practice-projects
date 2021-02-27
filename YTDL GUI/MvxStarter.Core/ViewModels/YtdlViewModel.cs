@@ -3,12 +3,7 @@ using MvxStarter.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Text;
 using System.Linq;
-using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using MvvmCross.Commands;
 using MvxStarter.Core.Handlers;
 using System.Threading.Tasks;
@@ -21,19 +16,19 @@ namespace MvxStarter.Core.ViewModels
         private string _optionsText;
         private bool _processRunning = false;
 
-        private ObservableCollection<VideoDownloadModel> _queuedDownloads;
-        private VideoDownloadModel _selectedDownload = null;
+        private ObservableCollection<IVideoDownloadModel> _queuedDownloads;
+        private IVideoDownloadModel _selectedDownload = null;
 
         private ObservableCollection<string> _downlaodOutput = new ObservableCollection<string>();
-        private readonly YTDLHandler _ytdlHandler;
-        private readonly JSONHandler _jsonHandler;
+        private readonly IYTDLHandler _ytdlHandler;
+        private readonly IJSONHandler _jsonHandler;
 
         public YtdlViewModel()
         {
-            _ytdlHandler = new YTDLHandler();
-            _jsonHandler = new JSONHandler();
+            _ytdlHandler = Factory.CreateYTDLHandler();
+            _jsonHandler = Factory.CreateJSONHandler();
             
-            QueuedDownloads = new ObservableCollection<VideoDownloadModel>(_jsonHandler.LoadQueue());
+            QueuedDownloads = new ObservableCollection<IVideoDownloadModel>(_jsonHandler.LoadQueue());
             
             EnqueueDownloadCommand = new MvxCommand(EnqueueDownload);
             StartDirectDownloadCommand = new MvxCommand(StartDirectDownload);
@@ -53,7 +48,7 @@ namespace MvxStarter.Core.ViewModels
         public IMvxCommand RemoveDownloadCommand { get; set; }
         public IMvxCommand StartQueueCommand { get; set; }
 
-        public ObservableCollection<VideoDownloadModel> QueuedDownloads
+        public ObservableCollection<IVideoDownloadModel> QueuedDownloads
         {
             get { return _queuedDownloads; }
             set
@@ -86,7 +81,7 @@ namespace MvxStarter.Core.ViewModels
             set { SetProperty(ref _optionsText, value); }
         }
 
-        public VideoDownloadModel SelectedDownload
+        public IVideoDownloadModel SelectedDownload
         {
             get { return _selectedDownload; }
             set 
@@ -101,7 +96,11 @@ namespace MvxStarter.Core.ViewModels
         public void EnqueueDownload()
         {
             int freeID = GetFreeID();
-            QueuedDownloads.Add(new VideoDownloadModel { EntryID = freeID, Link = LinkText, Options = OptionsText });
+            IVideoDownloadModel addedEntry = Factory.CreateVideoDownloadModel();
+            addedEntry.EntryID = freeID;
+            addedEntry.Link = LinkText;
+            addedEntry.Options = OptionsText;
+            QueuedDownloads.Add(addedEntry);
             ClearTextFields();
             RaisePropertyChanged(() => CanStartQueue);
             SaveQueue();
@@ -165,7 +164,7 @@ namespace MvxStarter.Core.ViewModels
         public bool CanStartQueue => (QueuedDownloads?.Count > 0 && !_processRunning);
 
         async public void StartQueue() {
-            List<VideoDownloadModel> helperList = QueuedDownloads.ToList();
+            List<IVideoDownloadModel> helperList = QueuedDownloads.ToList();
             // Disable Buttons
             ToggleDLButtons(setDisabled: true);
             foreach (var item in helperList) {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MvxStarter.Core.Handlers
 {
-    class YTDLHandler
+    class YTDLHandler : IYTDLHandler
     {
         private readonly string _defaultfileLoc = "F:/YTDL/youtube-dl.exe";
         private readonly Process _process;
@@ -35,13 +35,14 @@ namespace MvxStarter.Core.Handlers
             _process.StartInfo.FileName = newLoc;
         }
 
-        async public Task<bool> StartDownload( string link, string options)
+        async public Task<bool> StartDownload(string link, string options)
         {
             try
             {
                 _process.StartInfo.Arguments = $"{link} {options}";
                 var hasStarted = _process.Start();
-                if (!hasStarted) {
+                if (!hasStarted)
+                {
                     return true;
                 }
                 var waitforexit = WaitForExitAsync(_process);

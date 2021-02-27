@@ -1,14 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MvxStarter.Core.Models
+﻿namespace MvxStarter.Core.Models
 {
-    class VideoDownloadModel
+    class VideoDownloadModel : IVideoDownloadModel
     {
         private int _entryID;
         private string _link;
         private string _options;
+
+        /// <summary>
+        /// This constructor is required for the JSON deserializer to be able
+        /// to identify concrete classes to use when deserializing the interface properties.
+        /// </summary>
+        /// <param name="entryID">The Entry's ID number.</param>
+        /// <param name="link">The target link to download.</param>
+        /// <param name="options">The options supplied for the download.</param>
+        public VideoDownloadModel(int entryID, string link, string options)
+        {
+            _entryID = entryID;
+            _link = link;
+            _options = options;
+        }
+
+        public VideoDownloadModel() { }
+
         public int EntryID
         {
             get { return _entryID; }
