@@ -35,18 +35,37 @@ Pitfalls fallen into:
 
 Added a checkbox allow the options text to remain after starting a direct download / adding a task to the queue.
 
+### Update (2021-02-27) - Implementing the SOLID principle
+
+Changed the concrete types (YTDLHandler, JSONHandler, VideoDownloadModel) to Interfaces to decouple the ViewModel from their implementations. A **factory** now builds these corresponding objects. Initially this was the only point where the interfaces were mapped to the concrete types until a new Problem arose: 
+
+**(De-)serializing interfaces with System.Text.Json - How does it work?**
+
+Via:
+* https://stackoverflow.com/questions/58373915/serialize-objects-implementing-interface-with-system-text-json
+* https://khalidabuhakmeh.com/serialize-interface-instances-system-text-json
+
+Solution: Provide a JsonConverter for IVideoDownloadModel. Implemented that VideoDownloadModelConverter, so the JSONHandler can now (de)serialize IVideoDownloadModel, sadly that converter tightly couples the IVideoDownloadModel interface to the VideoDownloadModel implementation.
+
+
 ## XUnitTesting
 
 This project acts as a "playground" to experiment with the different features of the XUnit testing library. I'm also using this project to implement some of the common design patterns (Currently: Singleton & Decorator).
 
+## Theory looked into:
+
+* Design Principles: SOLID
+  - Single Responsibility Principle - ensuring classes only have one well defined responsibility.
+  - Open Close Principle - ensure classes are open for extension, but closed for modification.
+  - Liskov Substitution Principle - ensuring good inheritance hierachies. Replacing A with B:A shouldn't break existing code.
+  - Interface Segregation Principle - ensuring basic interfaces are kept minimal. Combine them if necessary (e.g. IBorrowableBook : IBook, IBorrowable).
+  - Dependency Inversion Principle - depend on interfaces / abstractions now implementations
+
+Following these principles creates code that's much more testable. Former hard dependencies can now be replaced by "mock-up" replacements and the scope of each unit is defined more narrowly.
+
 ## Currently Looking into ...
 
-* Design Pattern refresher
-* Design Principles: SOLID
-  - Single Responsibility Principle
-  - Open Close Principle
-  - Liskov Substitution Principle
-  - Interface Segregation Principle
-  - Dependency Inversion Principle
 * Unit Testing: Mocking
+* Dependency Injection
+* Design Pattern refresher (Builder, Visitor, Observer ...)
 * Storing binary data in SQL-Databases
