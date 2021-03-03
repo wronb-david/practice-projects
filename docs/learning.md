@@ -6,10 +6,22 @@
 
 ### Practical Topics
 
-* Unit Testing: Mocking (in C#)
-* Dependency Injection (in C#)
-* Connecting to SQL-Databases (MySQL, Sqlite)
-* Storing binary data in SQL-Databases (in C#)
+#### C# related
+
+* "sealed" classes
+* static code analyzers for C#/.net (like ClangTidy, CppCheck in C++ and PMD in Java)
+* Dependency Injection
+* Unit Testing: Mocking
+* Connecting to SQL-Databases (esp. local Sqlite files and remote MySQL servers)
+  - Storing binary data in SQL-Databases
+* Talking to RESTful APIs
+* Deeper look into Async & Tasks
+
+#### C++ related
+
+* C++20 Concepts
+* C++20's compile time programming expansion
+  - constexpr algorithms, consteval
 
 
 ## Theory topics I recently looked into:
