@@ -22,50 +22,16 @@ The last one is a crude helper as finding a good trigger, that triggers once aft
 
 After following Tim Corey's [tutorial](https://www.youtube.com/playlist?list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8) on WPF/MVVM, my goal for this project was to move past the shell of the typical tutorial project, while also solving a "real" issue.
 
-This project provides a very simple GUI for the command line tool youtube-dl. It also allows the user to save a "command queue" for the command line tool as JSON file.
+This project provides a very simple GUI for the command line tool youtube-dl. It will also save the queued commands in JSON file, which is loaded upon starting the application. 
 
-* apply WPF/MVVM knowledge using MVVM Cross
-* learn how to call an external process without locking the UI thread.
-* learn how to use .net's JSON library to save / load data.
+More details in the [project's own markdown file](YTDL%20GUI/readme.md)
 
-Pitfalls fallen into:
-
-* Observable collections don't like being updated from another thread (at least prior to .net 4.5)
-(Tried to use a callback to pipe the output of youtube-dl into the collection)
-
-Added a checkbox allow the options text to remain after starting a direct download / adding a task to the queue.
-
-### Update (2021-02-27) - Implementing the SOLID principle
-
-Changed the concrete types (YTDLHandler, JSONHandler, VideoDownloadModel) to Interfaces to decouple the ViewModel from their implementations. A **factory** now builds these corresponding objects. Initially this was the only point where the interfaces were mapped to the concrete types until a new Problem arose: 
-
-**(De-)serializing interfaces with System.Text.Json - How does it work?**
-
-Via:
-* https://stackoverflow.com/questions/58373915/serialize-objects-implementing-interface-with-system-text-json
-* https://khalidabuhakmeh.com/serialize-interface-instances-system-text-json
-
-Solution: Provide a JsonConverter for IVideoDownloadModel. Implemented that VideoDownloadModelConverter, so the JSONHandler can now (de)serialize IVideoDownloadModel, sadly that converter tightly couples the IVideoDownloadModel interface to the VideoDownloadModel implementation.
 
 
 ## XUnitTesting
 
 This project acts as a "playground" to experiment with the different features of the XUnit testing library. I'm also using this project to implement some of the common design patterns (Currently: Singleton & Decorator).
 
-## Theory looked into:
-
-* Design Principles: SOLID
-  - Single Responsibility Principle - ensuring classes only have one well defined responsibility.
-  - Open Close Principle - ensure classes are open for extension, but closed for modification.
-  - Liskov Substitution Principle - ensuring good inheritance hierachies. Replacing A with B:A shouldn't break existing code.
-  - Interface Segregation Principle - ensuring basic interfaces are kept minimal. Combine them if necessary (e.g. IBorrowableBook : IBook, IBorrowable).
-  - Dependency Inversion Principle - depend on interfaces / abstractions now implementations
-
-Following these principles creates code that's much more testable. Former hard dependencies can now be replaced by "mock-up" replacements and the scope of each unit is defined more narrowly.
-
 ## Currently Looking into ...
 
-* Unit Testing: Mocking
-* Dependency Injection
-* Design Pattern refresher (Builder, Visitor, Observer ...)
-* Storing binary data in SQL-Databases
+A list of topics, that I'm currently looking into - or have looked into recently - can be found [here](docs/learning.md).
