@@ -24,7 +24,7 @@
   - constexpr algorithms, consteval
 
 
-## Theory topics I recently looked into:
+## Topics I recently looked into:
 
 ### Design Principles: SOLID
 * Single Responsibility Principle
@@ -59,3 +59,38 @@ Following these principles creates code for which it is much easier to create un
 On the other hand it is not always immediately obvious how far these principles should be taken: 
 - When is it fine to depend on an impementaion rather than an interface?
 - What constitutes as a single responsibility? How granular should this be?
+
+### C# access modifiers
+
+* Public
+
+Accessible everywhere.
+
+* Private
+
+Only accessible within the same class.
+
+* Protected
+
+Accessible downwards in the class hierarchy.
+
+* Internal
+
+Only accessible within the same assembly (e.g. the same class library / dll)
+
+* Protected Internal
+
+Makes internal fields available to the assemblies of any sub-classes.
+
+* Private Protected
+
+Limits protected to the same assembly. Only subclasses within the same assembly can access fields with this modifier, while subclasses in other assemblies cannot.
+
+### Verbatim String Literals
+
+```c#
+string nonverbatim = "C:\\temp\\target.txt";
+string    verbatim = @"C:\temp\target.txt";
+```
+
+Unlike normal string literals verbatim string literals do not convert escape sequences (\t, \u0041, \x0041), but rather take these literally, which makes them a great option for windows path strings as there's no need to escape the backslashes.
