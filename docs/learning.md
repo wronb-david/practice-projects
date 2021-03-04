@@ -9,6 +9,7 @@
 #### C# related
 
 * "sealed" classes
+* Generics and how to constrain them
 * static code analyzers for C#/.net (like ClangTidy, CppCheck in C++ and PMD in Java)
 * Dependency Injection
 * Unit Testing: Mocking
@@ -29,7 +30,7 @@
 ### Design Principles: SOLID
 * Single Responsibility Principle
 
-Classes should have one well defined responsibility. Something within their responsibility chainging, should be the only reason for change of a given entity.
+Aims to ensure that classes have exactly one well defined responsibility. The only reason for change of a given entity, should be that something within ther responsibility changes.
 
 * Open Close Principle
 
