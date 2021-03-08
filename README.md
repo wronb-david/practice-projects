@@ -26,11 +26,15 @@ This project provides a very simple GUI for the command line tool youtube-dl. It
 
 More details in the [project's own markdown file](YTDL%20GUI/readme.md)
 
-
-
 ## XUnitTesting
 
 This project acts as a "playground" to experiment with the different features of the XUnit testing library. I'm also using this project to implement some of the common design patterns (Currently: Singleton & Decorator).
+
+## DysonSphereProgram Calculator (Added: 2021-03-08) [WIP]
+
+This is a small C++17 console application parses two command line arguments (color, rate) and then prints a list of buildings & resources required to produce the matrices of the given color at the given rate.
+
+Currently only handles the command line arguments.
 
 ## Currently Looking into ...
 
