@@ -35,3 +35,7 @@ This project acts as a "playground" to experiment with the different features of
 ## Currently Looking into ...
 
 A list of topics, that I'm currently looking into - or have looked into recently - can be found [here](docs/learning.md).
+
+## Watchlist etc.
+
+A list of programming related blogs I read, channels I watch and podcasts I listen to can be found [here](docs/watchlist.md)
