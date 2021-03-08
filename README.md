@@ -1,8 +1,9 @@
 # David's Practice Projects
 
 While I'm learning C#, I'm working on these projects. This repository acts as a public storage for these.
+Some of my projects in other languagues are also found here.
 
-## ONI Mod: AdjustedFoodDisplay
+## (C#, Harmony) ONI Mod: AdjustedFoodDisplay
 
 The initial project that brought me to C#: A mod for the game "Oxygen Not Included".
 It uses the harmony library, that is included with the game, to change how the base game [1] displays the total calories available to the colony. By default the game counts all available food items and displays ther total calories at the top of the screen, while also providing the same number on the right edge of the screen as part of the resource display.
@@ -18,7 +19,7 @@ The last one is a crude helper as finding a good trigger, that triggers once aft
 
 [1] To support the multi-colony nature of first DLC adjustments may have to be made.
 
-## YTDL GUI 
+## (C#) YTDL GUI 
 
 After following Tim Corey's [tutorial](https://www.youtube.com/playlist?list=PLLWMQd6PeGY3QEHCmCWaUKNhmFFdIDxE8) on WPF/MVVM, my goal for this project was to move past the shell of the typical tutorial project, while also solving a "real" issue.
 
@@ -26,15 +27,21 @@ This project provides a very simple GUI for the command line tool youtube-dl. It
 
 More details in the [project's own markdown file](YTDL%20GUI/readme.md)
 
-## XUnitTesting
+## (C#) XUnitTesting
 
 This project acts as a "playground" to experiment with the different features of the XUnit testing library. I'm also using this project to implement some of the common design patterns (Currently: Singleton & Decorator).
 
-## DysonSphereProgram Calculator (Added: 2021-03-08) [WIP]
+## (C++) DysonSphereProgram Calculator (Added: 2021-03-08) [WIP]
 
 This is a small C++17 console application parses two command line arguments (color, rate) and then prints a list of buildings & resources required to produce the matrices of the given color at the given rate.
 
 Currently only handles the command line arguments.
+
+## (Web) Player Value Tracker
+
+One of my slightly older projects. A very simple tracker for player values in Fifa 13. Mainly to experiment with data urls, to be able to save (download) the existing data into a json file, and the Web API class FileReader, to be able to load that json data back in.
+
+---
 
 ## Currently Looking into ...
 

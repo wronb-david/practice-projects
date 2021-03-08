@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fifa 13 Player Value Tracker</title>
+		<link rel="stylesheet" href="tracker.css">
+		<script src="tracker.js"></script>
+	</head>
+	<body>
+		<form action="">
+			<fieldset id="ff13Start">
+				<input type="button" value="Create new game" onclick="ff13pt.startCreate()">
+				<input type="button" value="Load existing game" onclick="ff13pt.startLoad()">
+			</fieldset>
+			<fieldset id="ff13Load" class="hidden">
+				<input type="file" id="fileInput">
+				<input type="button" value="Load game from file" onclick="ff13pt.loadGame()">
+			</fieldset>
+			<fieldset id="ff13Create" class="hidden">
+				<label for="ff13GameName">Name:</label>
+				<input type="text" name="ff13GameName" id="ff13GameName">
+				<input type="button" value="Create game" onclick="ff13pt.createGame()">
+			</fieldset>
+			<fieldset id="ff13AddPlayer" class="hidden">
+				<label for="ff13PlayerName">Name:</label>
+				<input type="text" name="ff13PlayerName" id="ff13PlayerName"><br>
+				<label for="ff13PlayerValue">Initial Value:</label>
+				<input type="text" name="ff13PlayerValue" id="ff13PlayerValue" pattern="\d{0,15}"><br>
+				<input type="button" value="Add Player" onclick="ff13pt.addPlayer()">
+			</fieldset>
+			<fieldset id="ff13UpdateFinalVaue" class="hidden">
+					<label for="ff13SelPlayer">Player:</label>
+					<select id="ff13SelPlayer"></select>
+					<label for="ff13FinalValue">Final Value:</label>
+					<input type="text" name="ff13FinalValue" id="ff13FinalValue" pattern="\d{0,15}"><br>
+					<input type="button" value="Update Final Value" onclick="ff13pt.updateFinalValue()">
+			</fieldset>
+		</form>
+		<table id="tPlayers" class="hidden">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Starting Value</th>
+					<th>Final Value</th>
+					<th>Difference</th>
+					<th>Sold</th>
+				</tr>
+			</thead>
+			<tbody id="tbPlayers"></tbody>
+		</table>
+		<form action="">
+			<div class="left">
+				<span id="unsavedData" class="hidden">Unsaved Data!</span>
+				<input id="saveData" type="button" value="Save" onclick="ff13pt.saveToFile()">
+			</div>
+		</form>
+	</body>
+</html>
