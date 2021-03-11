@@ -33,9 +33,13 @@ This project acts as a "playground" to experiment with the different features of
 
 ## (C++) DysonSphereProgram Calculator (Added: 2021-03-08) [WIP]
 
-This is a small C++17 console application parses two command line arguments (color, rate) and then prints a list of buildings & resources required to produce the matrices of the given color at the given rate.
+This is a small C++17 console application parses two command line arguments (color, rate) and then prints the list of resources required to produce the science matrices of the given color at the given rate.
 
-Currently only handles the command line arguments.
+[Update 2021-03-11] The calculations for crafting blue science (Electromagnetic Matrix) is now implemented, crafting recipes & item data for the remaining colors have to be added.
+
+* The Item struct now just holds a string. 
+* The Crafting recipes are now their own struct, as there are recipes with multiple source materials and products - as part of the item struct these were initially limited to just multiple source materials as they were tied to item in question.
+
 
 ## (Web) Player Value Tracker
 
