@@ -82,7 +82,7 @@ namespace CommandLineParser {
 					return DSP::Recipe::ELECTROMAGNETIC_MATRIX_CRAFTING;
 					break;
 				case DSP::Color::Red:
-					return std::nullopt;
+					return DSP::Recipe::ENERGY_MATRIX_CRAFTING;
 					break;
 				case DSP::Color::Yellow:
 					return std::nullopt;

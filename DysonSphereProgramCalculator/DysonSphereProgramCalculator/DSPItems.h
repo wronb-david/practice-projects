@@ -21,16 +21,23 @@ struct Item
 	static const Item CRUDE_OIL;
 	static const Item LOG;
 	static const Item PLANT_FUEL;
+	
 
 	// Derived Items
 	static const Item IRON_INGOT;
 	static const Item MAGNET;
 	static const Item COPPER_INGOT;
-	static const Item ENERGETIC_GRAPHITE;
 	static const Item STONE_BRICK;
+	// Blue Science
 	static const Item CIRCUIT_BOARD;
 	static const Item MAGNETIC_COIL;
 	static const Item ELECTROMAGNETIC_MATRIX;
+	// Red Science
+	static const Item REFINED_OIL;
+	static const Item HYDROGEN;
+	static const Item ENERGETIC_GRAPHITE;
+	static const Item ENERGY_MATRIX;
+	// Yellow Science
 
 	bool operator==(const Item &rhs) const {
 		return rhs.name == this->name;
@@ -61,9 +68,15 @@ struct Recipe
 	static const Recipe COPPER_INGOT_SMELTING;
 	static const Recipe MAGNET_SMELTING;// !
 
+
 	static const Recipe MAGNETIC_COIL_CRAFTING;
 	static const Recipe CIRCUIT_BOARD_CRAFTING;
 	static const Recipe ELECTROMAGNETIC_MATRIX_CRAFTING;
+	//
+	static const Recipe CRUDE_OIL_EXTRACTING;
+	static const Recipe CRUDE_OIL_REFINING;
+	static const Recipe ENERGETIC_GRAPHITE_SMELTING;
+	static const Recipe ENERGY_MATRIX_CRAFTING;
 
 	static std::vector<Recipe> const getAllRecipes();
 };

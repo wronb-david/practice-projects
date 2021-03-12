@@ -6,10 +6,9 @@ namespace Calculator {
 
 	auto calculateProductionChainRec(const double &desired_rate, const DSP::Recipe &target, std::vector<DSP::Recipe> &recipeList, const int productIndex = 0) -> void {
 		DSP::MaterialData productData = target.products[productIndex];
-		double num_produced = productData.count;
-		double production_rate = target.production_cycles_per_minute * num_produced;
-		double num_producers = desired_rate / production_rate;
-		num_producers = std::ceil(num_producers);
+		const double num_produced = productData.count;
+		const double production_rate = target.production_cycles_per_minute * num_produced;
+		const double num_producers = std::ceil(desired_rate / production_rate);
 		
 		std::cout << "Producing " << desired_rate << " of " << productData.theItem.name << " requires " << num_producers << " production Buildings \n";
 
