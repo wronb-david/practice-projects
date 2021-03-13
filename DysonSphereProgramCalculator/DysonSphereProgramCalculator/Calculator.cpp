@@ -10,7 +10,7 @@ namespace Calculator {
 		const double production_rate = target.production_cycles_per_minute * num_produced;
 		const double num_producers = std::ceil(desired_rate / production_rate);
 		
-		std::cout << "Producing " << desired_rate << " of " << productData.theItem.name << " requires " << num_producers << " production Buildings \n";
+		std::cout << "Producing " << desired_rate << " of " << productData.theItem.name << " requires " << num_producers << " "<< target.production_building.name <<"\n";
 
 		for (DSP::MaterialData materialData : target.materials) {
 			auto [search_success, sourceRecipe, material_index] = findRecipe(materialData.theItem, recipeList);
