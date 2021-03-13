@@ -24,7 +24,7 @@ namespace CommandLineParser {
 
 	auto print_usage() -> void;
 	auto print_usage(std::ostream &stream, std::string const &err_msg = "") -> void;
-	auto check_argument_count(const int count) -> bool;
+	auto check_argument_count(const int count) noexcept -> bool;
 	auto parse_rate_as_unsigned_long(std::string const &rate) -> parsed_dbl;
 	auto parse_arguments(std::string const &color, std::string const &rate) -> parser_result;
 

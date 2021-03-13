@@ -3,22 +3,26 @@
 
 namespace DW {
 namespace CommandLineParser {
+	const std::string USAGE_VALID_COLORS = "blue | red | yellow";
 
 	auto print_usage() -> void {
 		print_usage(std::cout);
 	}
 
 	auto print_usage(std::ostream &stream, std::string const &err_msg) -> void {
-			if ("" != err_msg) {
-				stream << "Error: " << err_msg << "\n\n";
+		if ("" != err_msg) {
+			stream << "Error: " << err_msg << "\n\n";
 		}
 		stream << "Usage: dspc.exe science_color production_rate \n\n";
-		stream << "science_color (String): blue | red | yellow \n";
+		
+		stream << "Inputs: \n";
+		stream << "science_color (String): "<< USAGE_VALID_COLORS << "\n";
 		stream << "production_rate as unsigned int \n\n";
+		
 		stream << "Example: \n dspc.exe blue 120";
 	}
 
-	[[nodiscard]] auto check_argument_count(const int count) -> bool {
+	[[nodiscard]] auto check_argument_count(const int count) noexcept -> bool {
 		return count == 3;
 	}
 
@@ -37,7 +41,7 @@ namespace CommandLineParser {
 
 
 	[[nodiscard]] auto parse_arguments(std::string const &color, std::string const &rate) -> parser_result {
-		const std::vector<std::string> valid_colors{ "blue", "red", "yellow" };
+		const std::vector<std::string> valid_colors{ "blue", "red", "yellow"/*, "purple", "green", "white"*/ };
 		if (vector_contains(valid_colors, color)) {
 			auto [err_occured, desired_rate] = parse_rate_as_unsigned_long(rate);
 			if (!err_occured) {
@@ -85,7 +89,7 @@ namespace CommandLineParser {
 					return DSP::Recipe::ENERGY_MATRIX_CRAFTING;
 					break;
 				case DSP::Color::Yellow:
-					return std::nullopt;
+					return DSP::Recipe::STRUCTURE_MATRIX_CRAFTING;
 					break;
 				case DSP::Color::Purple:
 					return std::nullopt;
