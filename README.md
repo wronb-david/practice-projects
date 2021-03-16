@@ -46,7 +46,7 @@ This is a small C++17 console application parses two command line arguments (col
 One of my slightly older projects. A very simple tracker for player values in Fifa 13. Mainly to experiment with data urls, to be able to save (download) the existing data into a json file, and the Web API class FileReader, to be able to load that json data back in.
 
 
-## (Web) Audio Player
+## (Web) Audio Player (Added: 2021-03-16)
 
 Testing HTML5's audio element by creating a rather minimalistic HTML5 / javascript based audio player. The project uses a small python script to generate the audio file library for the player. The python script uses eyeD3 to extract the tag information from the audio files.
 
