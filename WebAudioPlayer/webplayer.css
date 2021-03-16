@@ -1,0 +1,150 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	color: #FFF;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	background-color: #333;
+	min-width: 800px;
+	width: 100%;
+}
+
+a {
+	color: #228B22;
+}
+
+table {
+	clear: both;
+    background-color: #222;
+    color: white;
+	border-collapse: collapse;
+	padding-bottom: 25px;
+	margin: 5px auto;
+}
+td, th {
+	border: 1px solid #111;
+	
+}
+
+td{
+	text-align: center
+}
+td, th {
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 80px;
+    min-height: 20px;
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(255,255,255,0) );
+}
+
+tr:nth-child(2n){
+	background-color: #444;
+}
+tr:nth-child(2n+1) {
+	background-color: #222;
+}
+
+tr.notsold {
+	color: #bd6b00;
+}
+
+tr.sold {
+	color: #228B22;
+}
+
+td.soldAtLoss {
+	color: #bd0000 !important;
+}
+
+thead > tr > *{
+    background-color: black;
+}
+
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+form {
+	display: block;
+	margin: 4px auto 16px;
+	background-color: rgba(100, 255, 0, 0.3);
+	overflow: auto;
+	width: 65%;
+	border: 4px solid rgba(100, 255, 0, 0.2);
+	background-clip: content-box;
+	background-image: linear-gradient(180deg, rgba(255, 255, 255, .25), rgba(0,0,0,.2) );
+	border-radius: 8px;
+}
+
+div.left {
+	width: 30%;
+	clear: both;
+	float: left;
+	padding: 4px;
+	margin: 10px 0;
+	text-align: right;
+}
+
+div.right {
+	width: 60%;
+	text-align: left;
+	float: right;
+	padding: 4px;
+	margin: 5px 0;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+	padding: 4px;
+	border: 1px solid #CCC;
+	background-color: #222;
+	color: #FFF;
+	border-radius: 3px 3px;
+}
+
+fieldset {
+	max-width: 860px;
+	margin: 4px auto;
+}
+fieldset.disabled {
+	background-color: #bd0000;
+	color: inherit;
+}
+fieldset.disabled legend {
+	display: none;
+	visibility: hidden;
+}
+
+input[type="button"], input[type="file"]{
+	text-align: center;
+	/*display: inline-block;*/
+	min-width: 110px;
+	margin: 15px 5px;
+	padding: 10px 15px 12px;
+	border: inherit;
+	border-radius: 3px;
+	font: 700 12px/1 'Open Sans', sans-serif;
+	box-shadow: inset 0 -1px 0 1px rgba(0,0,0,.1), inset 0 -10px 20px rgba(0,0,0,.1);
+	cursor: pointer;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+	background: #6b6;
+}
+
+input[type="button"]:hover {
+	background: #5a5;
+}
+
+input[type="button"]:disabled{
+	background: #d33;
+}
+
+ul.formList {
+	list-style: none;
+}
+ul.formList > li {
+	margin-left: 16px;
+}

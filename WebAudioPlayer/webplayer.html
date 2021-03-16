@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Audio Player</title>
+		<link rel="stylesheet" href="webplayer.css">
+		<script src="webplayer.js"></script>
+		<script src="library.js"></script>
+	</head>
+	<body>
+		<div id="audioPlayerControls">
+			<figure>
+				<audio	id="audioPlayer">
+					Your browser does not support the
+					<code>audio</code> element.
+				</audio>
+			</figure>
+			<form>
+				<input type="button" value="Play / Pause" onclick="webplayer.player.playPause()">
+				<input type="button" value="Stop" onclick="webplayer.player.stop()">
+				<input type="button" value="Next" onclick="webplayer.player.playbackEnded()"><br>
+				<label for="cbRandom">Random: </label>
+				<input type="checkbox" id="cbRandom" onchange="webplayer.player.setRandom()"><br>
+				<span>Repeat: </span>
+				<ul class="formList">
+					<li><label for="rbRepeatNone">None: </label><input type="radio"  name="rbRepeat" id="rbRepeatNone" onchange="webplayer.player.setRepeat(false, false)"></li>
+					<li><label for="rbRepeatSong">Song: </label><input type="radio"  name="rbRepeat" id="rbRepeatSong" onchange="webplayer.player.setRepeat(true, false)"></li>
+					<li><label for="rbRepeatList">List: </label><input type="radio"  name="rbRepeat" id="rbRepeatList" onchange="webplayer.player.setRepeat(false, true)" checked="checked"></li>
+				</ul>
+				<label for="audioVolume">Volume: </label>
+				<input type="range" id="audioVolume" min="0" max="100" value="50" oninput="webplayer.player.setVolume()"> <span id="volumeValue">50 / 100</span>
+				<!--TODO Volume Control - Slider? -->
+			</form>
+		</div>
+		<table id="tPlaylist" class="hidden">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Album</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="tbPlaylist"></tbody>
+		</table>
+		<!-- PLAYLIST CONTROLS-->
+		<form action="">
+			<fieldset id="playlistLoad">
+				<input type="file" id="fileInput">
+				<input type="button" value="Load a playlist from file" onclick="webplayer.playlist.load()">
+			</fieldset>
+			<fieldset id="playlistSave" class="hidden">
+				<input type="text" name="playlistFileName" id="playlistFileName" oninput="webplayer.playlist.updateName()">
+				<input id="saveData" type="button" value="Save" onclick="webplayer.playlist.saveToFile()">
+			</fieldset>
+		</form>
+		<!-- LIBRARY SEARCH -->
+		<form action="" id="formSearch" class="hidden">
+			<fieldset id="librarySearch">
+				<label for="songSearch">Suche: </label>
+				<input type="text" name="songSearch" id="songSearch" oninput="webplayer.library.search()">
+			</fieldset>
+		</form>
+		<table id="tLibrary" class="hidden">
+			<thead>
+				<tr>
+					<td>#</td>
+					<th>Title</th>
+					<th>Artist</th>
+					<th>Album</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="tbLibrary"></tbody>
+		</table>
+	</body>
+</html>
