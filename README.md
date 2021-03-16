@@ -49,6 +49,7 @@ One of my slightly older projects. A very simple tracker for player values in Fi
 ## (Web) Audio Player
 
 Testing HTML5's audio element by creating a rather minimalistic HTML5 / javascript based audio player. The project uses a small python script to generate the audio file library for the player. The python script uses eyeD3 to extract the tag information from the audio files.
+
 ---
 
 ## Currently Looking into ...
